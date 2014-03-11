@@ -127,7 +127,7 @@ function edd_favorites_load_link( $download_id = '' ) {
 		'action'		=> 'edd_favorites_favorite',
 		'class'			=> implode( ' ', $classes ),
 		'link_size'		=> apply_filters( 'edd_wl_link_size', '' ),
-		'text'        	=> ! empty( $edd_options[ 'edd_favorites_favorite' ] ) ? $edd_options[ 'edd_favorites_favorite' ] : __( 'Favorite', 'edd-favorites' )
+		'text'        	=> ! empty( $edd_options[ 'edd_favorites_favorite' ] ) ? $edd_options[ 'edd_favorites_favorite' ] : ''
 	), $download_id );
 
 	edd_wl_wish_list_link( $args );

@@ -82,9 +82,9 @@ function edd_favorites_get_users_list_id() {
  */
 function edd_favorites_create_list_id() {
 	$args = array(
-		'post_title'    => apply_filters( 'edd_favorites_page_title', __( 'My Favorites', 'edd-favorites' ) ),
+		'post_title'    => apply_filters( 'edd_favorites_post_title', __( 'My Favorites', 'edd-favorites' ) ),
 		'post_content'  => '',
-		'post_status'   => 'private',
+		'post_status'   => apply_filters( 'edd_favorites_post_status', 'private' ),
 		'post_type'     => 'edd_wish_list',
 	);
 
