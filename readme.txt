@@ -4,35 +4,31 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: easy digital downloads, digital downloads, e-downloads, edd, sumobi, purchase, wish list, wishlist, favorite, bookmark, e-commerce
 Requires at least: 3.3
 Tested up to: 3.9 alpha
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Favorite/Unfavorite EDD downloads in just 1 click.
+Favorite/Unfavorite downloads in Easy Digital Downloads with just 1 click.
 
 == Description ==
 
 This plugin requires both [EDD Wish Lists](https://easydigitaldownloads.com/extensions/edd-wish-lists/?ref=166 "EDD Wish Lists") & [Easy Digital Downloads](http://wordpress.org/extend/plugins/easy-digital-downloads/ "Easy Digital Downloads"). <strong>It will NOT function without them.</strong>
 
-[View Demo](http://edd-favorites.sumobithemes.com "View Demo")
+**Demo**
+[View Live Demo](http://edd-favorites.sumobithemes.com "View Demo")
 
-EDD Favorites is a plugin for EDD Wish Lists that allows your customers to "favorite" your downloads. It also supports the [Crowdfunding](http://wordpress.org/plugins/appthemer-crowdfunding/ "Crowdfunding") plugin. By clicking a simple link, the current download (or campaign) is instantly added to a "favorites" list.
+EDD Favorites is a plugin for EDD Wish Lists that allows your customers to "favorite" downloads. With 1 click (and another click to remove) the download is instantly added to the user's favorites.
 
-The favorites list also appears amongst the other Wish Lists (if you choose to use lists also). The ability to add a favorite download to a specific list will be coming in a future version. Just like EDD Wish Lists, once a customer registers on your website, their favorites list is moved with them, so their favorites are not lost.
+**What's the difference between EDD Wish Lists and EDD Favorites?**
 
-Why do I want EDD Favorites?
-This plugin let's customers favorite downloads in a single click. If you want customers to save price variations, stick with the default EDD Wish lists plugin.
+With EDD Wish lists, you click the "add to wish list" link and choose a list (or create a new one) from the modal window. It also works with variable pricing. EDD favorites is for quickly adding/removing downloads to a single list with 1 click. It doesn't support variable pricing, meaning you cannot add a specific price to the favorites list, instead it adds the entire download.
 
-Coming soon
-1. The ability choose which list a download will be favorited to
-1. Demo
-1. Screenshots
-1. Auto page setup
-1. Sharing for the favorites list
+**Coming soon**
+Favorite downloads to a specific list, auto page creation on plugin install, share your favorites list (just like Wish Lists).
 
-**More plugins by Sumobi for Easy Digital Downloads**
+**More plugins for Easy Digital Downloads by Sumobi**
 
-You can find more plugins (both free and commercial) from [Easy Digital Downloads' website](https://easydigitaldownloads.com/extensions/edd-wish-lists/?ref=166 "EDD Plugins by Sumobi")
+You can find more of my EDD plugins (both free and commercial) from [Easy Digital Downloads' website](https://easydigitaldownloads.com/blog/author/andrewmunro/?ref=166 "EDD Plugins by Sumobi")
 
 **Stay up to date**
 
@@ -49,13 +45,25 @@ You can find more plugins (both free and commercial) from [Easy Digital Download
 1. Navigate to `wp-admin/plugins.php` on your site (your WP Admin plugin page)
 1. Activate this plugin
 
-OR you can just install it with WordPress by going to Plugins >> Add New >> and type this plugin's name
+
+OR you can just install it with WordPress by going to Plugins &rarr; Add New &rarr; and type this plugin's name
+
+Setup the EDD Favorites page and edit page
+
+1. Create a new page where users will view their favorites. Insert the [edd_favorites] shortcode
+1. Create a new page where users will edit their favorites (optional). Insert the [edd_favorites_edit] shortcode
+1. Select these 2 pages from the EDD settings in Downloads &rarr; Settings &rarr; Extensions
 
 == Screenshots ==
 
-1. 
+1. Favorite downloads 
+2. View your list of favorites
+3. Edit your favorites list
 
 == Changelog ==
+
+= 1.0.1 =
+Fix: user who didn't have cookie was given a list that already existed
 
 = 1.0 =
 * Initial release

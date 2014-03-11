@@ -53,6 +53,11 @@ function edd_favorites_get_users_list_id() {
 	}
 	// user is logged out
 	elseif ( ! is_user_logged_in() ) {
+
+		// if user does not have token, exit
+		if ( ! edd_wl_get_list_token() )
+			return null;
+
 		// find the list ID that has the 'edd_favorites_list_id' meta key and value of user's token
 		$args = array(
 			'post_type' 		=> 'edd_wish_list',
