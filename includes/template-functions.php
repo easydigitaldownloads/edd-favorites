@@ -52,18 +52,6 @@ function edd_favorites_set_messages() {
 }
 add_action( 'template_redirect', 'edd_favorites_set_messages' );
 
-/**
- * Remove standard wish list links
- * @return [type] [description]
- */
-function edd_favorites_link() {
-	// remove standard add to wish list link
-	remove_action( 'edd_purchase_link_top', 'edd_wl_load_wish_list_link' );
-
-	// add our new link
-	add_action( 'edd_purchase_link_top', 'edd_favorites_load_link' );
-}
-add_action( 'template_redirect', 'edd_favorites_link' );
 
 /**
  * When a guest registers, copy their favorites list ID to their user profile
@@ -79,6 +67,7 @@ function edd_favorites_new_user_registration( $user_id ) {
 }
 add_action( 'user_register', 'edd_favorites_new_user_registration', 10, 1 );
 add_action( 'wpmu_new_user', 'edd_favorites_new_user_registration', 10, 1 );
+
 
 /**
  * Handles loading of the favorites link
@@ -122,13 +111,32 @@ function edd_favorites_load_link( $download_id = '' ) {
 
 	
 	// add $options
-	$args = apply_filters( 'edd_favorites_link', array(
+	$args = array(
 		'download_id'	=> $download_id,
 		'action'		=> 'edd_favorites_favorite',
 		'class'			=> implode( ' ', $classes ),
 		'link_size'		=> apply_filters( 'edd_wl_link_size', '' ),
-		'text'        	=> ! empty( $edd_options[ 'edd_favorites_favorite' ] ) ? $edd_options[ 'edd_favorites_favorite' ] : ''
-	), $download_id );
+		'text'        	=> ! empty( $edd_options[ 'edd_favorites_favorite' ] ) ? $edd_options[ 'edd_favorites_favorite' ] : '',
+	);
+
+	$args = apply_filters( 'edd_favorites_link', $args );
+
+	//var_dump( $args );
 
 	edd_wl_wish_list_link( $args );
 }
+
+/**
+ * Remove standard wish list links
+ * @return [type] [description]
+ * @uses  edd_favorites_load_link()
+ */
+function edd_favorites_link() {
+	// remove standard add to wish list link
+	remove_action( 'edd_purchase_link_top', 'edd_wl_load_wish_list_link' );
+
+	// add our new link
+	add_action( 'edd_purchase_link_top', 'edd_favorites_load_link' );
+}
+add_action( 'template_redirect', 'edd_favorites_link' );
+
