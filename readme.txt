@@ -64,6 +64,10 @@ Setup the EDD Favorites page and edit page
 
 == Changelog ==
 
+= 1.0.4 =
+Requires: EDD Wish Lists v1.0.4
+Tweak: Added filter to remove CSS class responsible for ajax on view links when there is variable priced downloads in the favorites list
+
 = 1.0.3 =
 Requires: EDD Wish Lists v1.0.3
 New: Modified the delete link text on edit page to say "Delete favorites". Filter included for changing

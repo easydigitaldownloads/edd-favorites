@@ -22,6 +22,22 @@ add_filter( 'edd_wl_show_add_all_to_cart_link', '__return_false' );
  */
 add_filter( 'edd_wl_item_title_options', '__return_false' );
 
+
+/**
+ * Remove CSS class responsible for ajax when there are variable priced downloads
+ *
+ * @since 1.0.4
+ */
+function edd_favorites_edd_wl_item_purchase( $classes, $download_id ) {
+	$variable_pricing = edd_has_variable_prices( $download_id );
+
+	if ( $variable_pricing )
+		return '';
+
+	return $classes;
+}
+add_filter( 'edd_wl_item_purchase_default_css_classes', 'edd_favorites_edd_wl_item_purchase', 10, 2 );
+
 /**
  * Filter the price on the favorites page
  * Variable prices will show a price range
