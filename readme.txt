@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: easy digital downloads, digital downloads, e-downloads, edd, sumobi, purchase, wish list, wishlist, favorite, bookmark, e-commerce
 Requires at least: 3.3
 Tested up to: 3.9 alpha
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,10 @@ Setup the EDD Favorites page and edit page
 3. Edit your favorites list
 
 == Changelog ==
+
+= 1.0.5 =
+Requires: EDD Wish Lists v1.0.6
+Fix: Compatibility with EDD v1.9.9
 
 = 1.0.4 =
 Requires: EDD Wish Lists v1.0.4

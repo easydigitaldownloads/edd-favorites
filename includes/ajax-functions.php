@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function edd_favorites_favorite() {
 
-	if ( isset( $_POST['download_id'] ) && check_ajax_referer( 'edd_ajax_nonce', 'nonce' ) ) {
+	if ( isset( $_POST['download_id'] ) ) {
 		global $post;
 
 		$to_add = array();
