@@ -65,7 +65,9 @@ Setup the EDD Favorites page and edit page
 == Changelog ==
 
 = 1.0.6 =
-Requires: EDD Wish Lists v1.0.7
+Requires: EDD Wish Lists v1.0.8
+Fix: Modified query vars as per recent changes in EDD Wish Lists
+Fix: EDD favorites now no longer deactivates when EDD is updated
 
 = 1.0.5 =
 Requires: EDD Wish Lists v1.0.6

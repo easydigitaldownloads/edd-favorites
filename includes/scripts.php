@@ -66,10 +66,6 @@ function edd_favorites_js() {
 			    });
 
 			    var linkClicked = $(this);
-
-			 //   console.log( linkClicked );
-			//    console.log( 'favorite link clicked' );
-
 				var container = $(this).closest('div');
 
 				var form 			= $(this).closest('form'); // get the closest form element			

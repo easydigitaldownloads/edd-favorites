@@ -36,7 +36,7 @@ function edd_favorites_set_messages() {
 	*/
 	if ( edd_favorites_is_favorites() ) {
 
-		$downloads = edd_wl_get_wish_list();
+		$downloads = edd_wl_get_wish_list( edd_wl_get_list_id() );
 
 		// list updated
 		if ( isset( $_GET['list'] ) && $_GET['list'] == 'updated' ) {
@@ -121,8 +121,6 @@ function edd_favorites_load_link( $download_id = '' ) {
 
 	$args = apply_filters( 'edd_favorites_link', $args );
 
-	//var_dump( $args );
-
 	edd_wl_wish_list_link( $args );
 }
 
@@ -139,4 +137,3 @@ function edd_favorites_link() {
 	add_action( 'edd_purchase_link_top', 'edd_favorites_load_link' );
 }
 add_action( 'template_redirect', 'edd_favorites_link' );
-

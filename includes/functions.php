@@ -107,7 +107,7 @@ function edd_favorites_get_view_uri( $id = '' ) {
 		return apply_filters( 'edd_favorites_get_view_uri', trailingslashit( $uri ) );
 	}		
 	else {
-		return apply_filters( 'edd_favorites_get_view_uri', add_query_arg( 'view', $id, $uri ) );
+		return apply_filters( 'edd_favorites_get_view_uri', add_query_arg( 'wl_view', $id, $uri ) );
 	}
 }
 
@@ -124,7 +124,7 @@ function edd_favorites_get_edit_uri( $id = '' ) {
 		return apply_filters( 'edd_favorites_get_edit_uri', trailingslashit( $uri ) );
 	}		
 	else {
-		return apply_filters( 'edd_favorites_get_edit_uri', add_query_arg( 'view', $id, $uri ) );
+		return apply_filters( 'edd_favorites_get_edit_uri', add_query_arg( 'wl_edit', $id, $uri ) );
 	}
 }
 
