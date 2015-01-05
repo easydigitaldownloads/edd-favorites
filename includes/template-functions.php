@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function edd_favorites_set_query_var() {
 	if ( edd_favorites_is_favorites() ) {
-		set_query_var( 'view', edd_favorites_get_users_list_id() );
+		set_query_var( 'wl_view', edd_favorites_get_users_list_id() );
 	}
 
 	if ( edd_favorites_is_edit_page() ) {
-		set_query_var( 'edit', edd_favorites_get_users_list_id() );
+		set_query_var( 'wl_edit', edd_favorites_get_users_list_id() );
 	}
 }
 add_action( 'template_redirect', 'edd_favorites_set_query_var', 9 ); // runs just before edd_wl_process_form_requests() so it can pick up the correct query_var 

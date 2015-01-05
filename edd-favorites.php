@@ -3,7 +3,7 @@
 Plugin Name: Easy Digital Downloads - Favorites
 Plugin URI: http://sumobi.com/shop/edd-favorites
 Description: An add-on for EDD Wish Lists. Favorite/Unfavorite downloads in just 1 click.
-Version: 1.0.5
+Version: 1.0.6
 Author: Andrew Munro, Sumobi
 Author URI: http://sumobi.com/
 License: GPL-2.0+
@@ -84,7 +84,7 @@ if ( ! class_exists( 'EDD_Favorites' ) ) :
 		 * @return void
 		 */
 		private function setup_globals() {
-			$this->version 		= '1.0.5';
+			$this->version 		= '1.0.6';
 			$this->title 		= 'EDD Favorites';
 
 			// paths
@@ -141,7 +141,6 @@ if ( ! class_exists( 'EDD_Favorites' ) ) :
 		 * @return void
 		 */
 		private function hooks() {
-			add_action( 'admin_init', array( $this, 'activation' ) );
 			
 			add_filter( 'plugin_row_meta', array( $this, 'plugin_meta' ), null, 2 );
 
@@ -176,59 +175,6 @@ if ( ! class_exists( 'EDD_Favorites' ) ) :
 			} else {
 				// Load the default language files
 				load_plugin_textdomain( 'edd-favorites', false, $lang_dir );
-			}
-		}
-
-		/**
-		 * Activation function fires when the plugin is activated.
-		 *
-		 * This function is fired when the activation hook is called by WordPress,
-		 * it flushes the rewrite rules and disables the plugin if EDD isn't active
-		 * and throws an error.
-		 *
-		 * @since 1.0
-		 * @access public
-		 *
-		 * @return void
-		 */
-		public function activation() {
-			global $wpdb;
-
-			if ( ! class_exists( 'Easy_Digital_Downloads' ) || ! class_exists( 'EDD_Wish_Lists' ) ) {
-				// is this plugin active?
-				if ( is_plugin_active( plugin_basename( __FILE__ ) ) ) {
-					// deactivate the plugin
-			 		deactivate_plugins( plugin_basename( __FILE__ ) );
-			 		// unset activation notice
-			 		unset( $_GET[ 'activate' ] );
-			 		// display notice
-			 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
-				}
-			}
-			else {
-				add_filter( 'plugin_action_links_' . $this->basename, array( $this, 'settings_link' ), 10, 2 );
-			}
-
-		}
-
-		/**
-		 * Admin notices
-		 *
-		 * @since 1.0
-		*/
-		public function admin_notices() {
-			$edd_plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/easy-digital-downloads/easy-digital-downloads.php', false, false );
-
-			if ( ! is_plugin_active( 'easy-digital-downloads/easy-digital-downloads.php' ) ) {
-				echo '<div class="error"><p>' . sprintf( __( 'You must install %sEasy Digital Downloads%s to use EDD Favorites', 'edd-favorites' ), '<a href="http://wordpress.org/plugins/easy-digital-downloads/" title="Easy Digital Downloads" target="_blank">', '</a>' ) . '</p></div>';
-			}
-
-			if ( ! is_plugin_active( 'edd-wish-lists/edd-wish-lists.php' ) ) {
-				echo '<div class="error"><p>' . sprintf( __( 'You must install %sEDD Wish Lists%s to use EDD Favorites', 'edd-favorites' ), '<a href="https://easydigitaldownloads.com/extensions/edd-wish-lists/?ref=166" title="EDD Wish Lists" target="_blank">', '</a>' ) . '</p></div>';
-			}
-
-			if ( $edd_plugin_data['Version'] < '1.8.4' ) {
-				echo '<div class="error"><p>' . __( 'EDD Favorites requires Easy Digital Downloads Version 1.9 or greater. Please update Easy Digital Downloads.', 'edd-favorites' ) . '</p></div>';
 			}
 		}
 
@@ -270,7 +216,7 @@ if ( ! class_exists( 'EDD_Favorites' ) ) :
 
 
 /**
- * Loads a single instance of EDD Favorites
+ * Loads a single instance
  *
  * This follows the PHP singleton design pattern.
  *
@@ -283,17 +229,33 @@ if ( ! class_exists( 'EDD_Favorites' ) ) :
  *
  * @see EDD_Favorites::get_instance()
  *
- * @return object Returns an instance of the EDD_Favorites class
+ * @return object Returns an instance of the main class
  */
 function edd_favorites_load() {
-	return EDD_Favorites::get_instance();
-}
 
-/**
- * Loads plugin after all the others have loaded and have registered their hooks and filters
- *
- * @since 1.0
-*/
-add_action( 'plugins_loaded', 'edd_favorites_load', apply_filters( 'edd_favorites_action_priority', 100 ) );
+
+    if ( ! class_exists( 'Easy_Digital_Downloads' ) || ! class_exists( 'EDD_Wish_Lists' ) ) {
+
+        if ( ! class_exists( 'EDD_Extension_Activation' ) || ! class_exists( 'EDD_Wish_Lists_Activation' ) ) {
+            require_once 'includes/class-activation.php';
+        }
+
+        // EDD activation
+		if ( ! class_exists( 'Easy_Digital_Downloads' ) ) {
+			$edd_activation = new EDD_Extension_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
+			$edd_activation = $edd_activation->run();
+		}
+       	
+       	// EDD Wish Lists activation
+		if ( ! class_exists( 'EDD_Wish_Lists' ) ) {
+			$edd_wish_lists_activation = new EDD_Wish_Lists_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
+			$edd_wish_lists_activation = $edd_wish_lists_activation->run();
+		}
+     
+    } else {
+        return EDD_Favorites::get_instance();
+    }
+}
+add_action( 'plugins_loaded', 'edd_favorites_load', apply_filters( 'edd_favorites_action_priority', 10 ) );
 
 endif;

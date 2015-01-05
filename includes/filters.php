@@ -199,7 +199,7 @@ add_filter( 'edd_wl_edit_settings_link_uri', 'edd_favorites_edd_wl_edit_settings
  */
 function edd_favorites_post_type_link( $post_link, $post, $leavename, $sample ) {
     if ( $post->post_type == 'edd_wish_list' ) {
-        if ( edd_favorites_is_edit_page() && get_query_var( 'edit' ) == edd_favorites_get_users_list_id() ) {
+        if ( edd_favorites_is_edit_page() && get_query_var( 'wl_edit' ) == edd_favorites_get_users_list_id() ) {
         	$post_link = edd_favorites_get_view_uri( $post->ID );
         }
     }
