@@ -104,11 +104,13 @@ function edd_favorites_get_view_uri( $id = '' ) {
 	$uri = isset( $edd_options['edd_favorites_page_view'] ) ? get_permalink( $edd_options['edd_favorites_page_view'] ) : false;
 
 	if ( edd_wl_has_pretty_permalinks() ) {
-		return apply_filters( 'edd_favorites_get_view_uri', trailingslashit( $uri ) );
-	}		
-	else {
-		return apply_filters( 'edd_favorites_get_view_uri', add_query_arg( 'wl_view', $id, $uri ) );
+		$url = trailingslashit( $uri );
 	}
+	else {
+		$url = add_query_arg( 'wl_view', $id, $uri );
+	}
+
+	return esc_url( apply_filters( 'edd_favorites_get_view_uri', $url ) );
 }
 
 /**
@@ -121,11 +123,13 @@ function edd_favorites_get_edit_uri( $id = '' ) {
 	$uri = isset( $edd_options['edd_favorites_page_edit'] ) ? get_permalink( $edd_options['edd_favorites_page_edit'] ) : false;
 
 	if ( edd_wl_has_pretty_permalinks() ) {
-		return apply_filters( 'edd_favorites_get_edit_uri', trailingslashit( $uri ) );
-	}		
-	else {
-		return apply_filters( 'edd_favorites_get_edit_uri', add_query_arg( 'wl_edit', $id, $uri ) );
+		$url = trailingslashit( $uri );
 	}
+	else {
+		$url = add_query_arg( 'wl_edit', $id, $uri );
+	}
+
+	return esc_url( apply_filters( 'edd_favorites_get_edit_uri', $url ) );
 }
 
 

@@ -3,7 +3,7 @@
 Plugin Name: Easy Digital Downloads - Favorites
 Plugin URI: http://sumobi.com/shop/edd-favorites
 Description: An add-on for EDD Wish Lists. Favorite/Unfavorite downloads in just 1 click.
-Version: 1.0.6
+Version: 1.0.7
 Author: Andrew Munro, Sumobi
 Author URI: http://sumobi.com/
 License: GPL-2.0+
@@ -46,7 +46,7 @@ if ( ! class_exists( 'EDD_Favorites' ) ) :
 				self::$instance->setup_globals();
 				self::$instance->hooks();
 				self::$instance->includes();
-				
+
 			}
 
 			return self::$instance;
@@ -84,7 +84,7 @@ if ( ! class_exists( 'EDD_Favorites' ) ) :
 		 * @return void
 		 */
 		private function setup_globals() {
-			$this->version 		= '1.0.6';
+			$this->version 		= '1.0.7';
 			$this->title 		= 'EDD Favorites';
 
 			// paths
@@ -141,7 +141,7 @@ if ( ! class_exists( 'EDD_Favorites' ) ) :
 		 * @return void
 		 */
 		private function hooks() {
-			
+
 			add_filter( 'plugin_row_meta', array( $this, 'plugin_meta' ), null, 2 );
 
 			// insert actions
@@ -245,13 +245,13 @@ function edd_favorites_load() {
 			$edd_activation = new EDD_Extension_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
 			$edd_activation = $edd_activation->run();
 		}
-       	
+
        	// EDD Wish Lists activation
 		if ( ! class_exists( 'EDD_Wish_Lists' ) ) {
 			$edd_wish_lists_activation = new EDD_Wish_Lists_Activation( plugin_dir_path( __FILE__ ), basename( __FILE__ ) );
 			$edd_wish_lists_activation = $edd_wish_lists_activation->run();
 		}
-     
+
     } else {
         return EDD_Favorites::get_instance();
     }

@@ -3,8 +3,8 @@ Contributors: sumobi
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EFUPMPEZPGW7L
 Tags: easy digital downloads, digital downloads, e-downloads, edd, sumobi, purchase, wish list, wishlist, favorite, bookmark, e-commerce
 Requires at least: 3.3
-Tested up to: 4.1
-Stable tag: 1.0.6
+Tested up to: 4.2
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,10 +32,10 @@ You can find more of my EDD plugins (both free and commercial) from the [Easy Di
 
 **Stay up to date**
 
-*Become a fan on Facebook* 
+*Become a fan on Facebook*
 [http://www.facebook.com/sumobicom](http://www.facebook.com/sumobicom "Facebook")
 
-*Follow me on Twitter* 
+*Follow me on Twitter*
 [http://twitter.com/sumobi_](http://twitter.com/sumobi_ "Twitter")
 
 == Installation ==
@@ -58,11 +58,13 @@ Setup the EDD Favorites page and edit page
 
 [See more screenshots](https://easydigitaldownloads.com/extensions/edd-favorites/ "See more screenshots")
 
-1. Favorite downloads 
+1. Favorite downloads
 2. View your list of favorites
 3. Edit your favorites list
 
 == Changelog ==
+= 1.0.7 =
+* FIX: XSS vulnerability in query args
 
 = 1.0.6 =
 Requires: EDD Wish Lists v1.0.8
