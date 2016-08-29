@@ -1,9 +1,9 @@
 === EDD Favorites ===
-Contributors: sumobi
+Contributors: easydigitaldownloads, sumobi
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EFUPMPEZPGW7L
 Tags: easy digital downloads, digital downloads, e-downloads, edd, sumobi, purchase, wish list, wishlist, favorite, bookmark, e-commerce
 Requires at least: 3.3
-Tested up to: 4.2
+Tested up to: 4.6
 Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -14,29 +14,15 @@ Favorite/Unfavorite downloads in Easy Digital Downloads with just 1 click.
 
 This plugin requires both [EDD Wish Lists](https://easydigitaldownloads.com/extensions/edd-wish-lists/?ref=166 "EDD Wish Lists") & [Easy Digital Downloads](http://wordpress.org/extend/plugins/easy-digital-downloads/ "Easy Digital Downloads"). <strong>It will NOT function without them.</strong>
 
-[View Live Demo](http://edd-favorites.sumobithemes.com "View Demo") | [View Documentation](http://sumobi.com/docs/edd-favorites/ "View Documentation")
-
 EDD Favorites is a plugin for EDD Wish Lists that allows your customers to "favorite" downloads. With 1 click (and another click to remove) the download is instantly added to the user's favorites.
 
 **What's the difference between EDD Wish Lists and EDD Favorites?**
 
 With EDD Wish lists, you click the "add to wish list" link and choose a list (or create a new one) from the modal window. It also works with variable pricing. EDD favorites is for quickly adding/removing downloads to a single list with 1 click. It doesn't support variable pricing, meaning you cannot add a specific price to the favorites list, instead it adds the entire download.
 
-**Coming soon**
+**More plugins for Easy Digital Downloads**
 
-Favorite downloads to a specific list (like etsy), auto page creation on plugin install, share your favorites list (just like Wish Lists).
-
-**More plugins for Easy Digital Downloads by Sumobi**
-
-You can find more of my EDD plugins (both free and commercial) from the [Easy Digital Downloads'](https://easydigitaldownloads.com/blog/author/andrewmunro/?ref=166 "EDD Plugins by Sumobi") website
-
-**Stay up to date**
-
-*Become a fan on Facebook*
-[http://www.facebook.com/sumobicom](http://www.facebook.com/sumobicom "Facebook")
-
-*Follow me on Twitter*
-[http://twitter.com/sumobi_](http://twitter.com/sumobi_ "Twitter")
+You can find more EDD plugins (both free and commercial) on the [Easy Digital Downloads'](https://easydigitaldownloads.com) website.
 
 == Installation ==
 

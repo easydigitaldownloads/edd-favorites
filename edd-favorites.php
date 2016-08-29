@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Easy Digital Downloads - Favorites
-Plugin URI: http://sumobi.com/shop/edd-favorites
+Plugin URI: https://easydigitaldownloads.com/downloads/edd-favorites
 Description: An add-on for EDD Wish Lists. Favorite/Unfavorite downloads in just 1 click.
 Version: 1.0.7
-Author: Andrew Munro, Sumobi
-Author URI: http://sumobi.com/
+Author: Easy Digital Downloads
+Author URI: https://easydigitaldownloads.com
 License: GPL-2.0+
 License URI: http://www.opensource.org/licenses/gpl-license.php
 */
@@ -141,9 +141,6 @@ if ( ! class_exists( 'EDD_Favorites' ) ) :
 		 * @return void
 		 */
 		private function hooks() {
-
-			add_filter( 'plugin_row_meta', array( $this, 'plugin_meta' ), null, 2 );
-
 			// insert actions
 			do_action( 'edd_favorites_setup_actions' );
 		}
@@ -179,34 +176,13 @@ if ( ! class_exists( 'EDD_Favorites' ) ) :
 		}
 
 		/**
-		 * Modify plugin metalinks
-		 *
-		 * @access      public
-		 * @since       1.0.0
-		 * @param       array $links The current links array
-		 * @param       string $file A specific plugin table entry
-		 * @return      array $links The modified links array
-		 */
-		public function plugin_meta( $links, $file ) {
-		    if( $file == plugin_basename( __FILE__ ) ) {
-		        $plugins_link = array(
-		            '<a href="https://easydigitaldownloads.com/blog/author/andrewmunro/?ref=166" target="_blank">' . __( 'Author\'s EDD plugins', 'edd-favorites' ) . '</a>'
-		        );
-
-		        $links = array_merge( $links, $plugins_link );
-		    }
-
-		    return $links;
-		}
-
-		/**
 		 * Plugin settings link
 		 *
 		 * @since 1.0
 		*/
 		public function settings_link( $links ) {
 			$plugin_links = array(
-				'<a title="View more plugins for Easy Digital Downloads by Sumobi" href="' . admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ) . '">' . __( 'Settings', 'edd-favorites' ) . '</a>',
+				'<a href="' . admin_url( 'edit.php?post_type=download&page=edd-settings&tab=extensions' ) . '">' . __( 'Settings', 'edd-favorites' ) . '</a>',
 			);
 
 			return array_merge( $plugin_links, $links );
