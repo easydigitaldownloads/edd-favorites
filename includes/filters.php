@@ -129,7 +129,7 @@ function edd_favorites_edd_wl_add_to_cart_defaults( $defaults, $item_id ) {
 		'text' 			=> 'View',
 		'class'			=> 'edd-wl-action',
 		'style'			=> 'button',
-		'link'			=> post_permalink( $item_id )
+		'link'			=> get_permalink( $item_id )
 	);
 
 	return array_merge( $defaults, $new_defaults );
