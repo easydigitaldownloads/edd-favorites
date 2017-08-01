@@ -3,7 +3,7 @@
 Plugin Name: Easy Digital Downloads - Favorites
 Plugin URI: https://easydigitaldownloads.com/downloads/edd-favorites
 Description: An add-on for EDD Wish Lists. Favorite/Unfavorite downloads in just 1 click.
-Version: 1.0.7
+Version: 1.0.8
 Author: Easy Digital Downloads
 Author URI: https://easydigitaldownloads.com
 License: GPL-2.0+
@@ -84,7 +84,7 @@ if ( ! class_exists( 'EDD_Favorites' ) ) :
 		 * @return void
 		 */
 		private function setup_globals() {
-			$this->version 		= '1.0.7';
+			$this->version 		= '1.0.8';
 			$this->title 		= 'EDD Favorites';
 
 			// paths
